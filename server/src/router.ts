@@ -4,7 +4,6 @@ import { createProduct, deleteProduct, getProductById, getProducts, updateAvaila
 import { handleInputErrors } from './middleware';
 
 const router = Router();
-
 /**
  * @swagger
  * components:

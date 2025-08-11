@@ -2,7 +2,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Link, Form, useActionData, type ActionFunctionArgs } from "react-router-dom";
 import ErrorMessage from "../components/ErrorMessage";
-import { addProuct } from "../services/ProductService";
+import { addProduct } from "../services/ProductService";
 export async function action({ request } : ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
   let error = ""
@@ -13,7 +13,7 @@ export async function action({ request } : ActionFunctionArgs) {
   if(error.length)
     return error;
 
-   addProuct(data);
+   addProduct(data);
    return
 }
 export default function NewProduct() {
