@@ -19,11 +19,21 @@ export async function addProuct(data : ProductData) {
         name: result.output.name,
         price: result.output.price,
       })
-      console.log(data);
+      return data;
     } else{
       throw new Error('Invalid data')
     }
-    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getProducts() {
+  try {
+    const url = `${import.meta.env.VITE_API_URL}/api/products`;
+    const {data} = await axios.get(url)
+    console.log(data.data);
+    return data.data;
   } catch (error) {
     console.log(error);
   }

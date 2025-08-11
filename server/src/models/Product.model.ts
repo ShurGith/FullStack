@@ -11,7 +11,7 @@ class Product extends Model {
     declare name: string;
     @Column({type:DataType.BOOLEAN, defaultValue:true})
     declare availability: boolean;
-    @Column({type:DataType.FLOAT(6,2), allowNull:true})
+    @Column({type:DataType.DECIMAL(6,2), allowNull:true})
     declare price: number;
 
 }

@@ -1,6 +1,13 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Link } from "react-router-dom";
+import { getProducts } from "../services/ProductService";
+export async function loader(){
+  console.log("Desde el loader de productos");
 
+  return {}
+}
 
+getProducts();
 export default function Products() {
   return (
     <>

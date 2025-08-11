@@ -5,6 +5,7 @@ import colors from 'colors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec, { swaggerUiOptions } from './config/swagger';
 import cors, { CorsOptions } from 'cors';
+import morgan from 'morgan';
 
 
 
@@ -13,7 +14,7 @@ async function connectDB() {
   try {
     await db.authenticate();
     db.sync();
-    console.log(colors.bgBlue.italic('Conexion exitosa a la Base de Datos.'));
+    console.log(colors.bgBlue.italic('Conexión exitosa a la Base de Datos.'));
   } catch (error) {
     console.log(colors.bgRed.underline.red.bold("Hubo un error al conectar con la Base de Datos."));
   }
@@ -39,6 +40,8 @@ const corsOptions: CorsOptions = {
 
 server.use(cors(corsOptions));
 
+//Mensajes de depuración en consola de la terminal
+server.use(morgan('dev'));
 
 //Leer datos de formularios del body
 server.use(express.json());
